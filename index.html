@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/nav-list-css@1.3.1/dist/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/textbox-css@3.0.0/dist/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/page-layout-css@2.0.1/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/code-block-css@2.0.1/dist/index.css" />
 
     <link
       rel="stylesheet"
@@ -45,6 +46,10 @@
       rel="stylesheet"
       href="https://unpkg.com/@nl-design-system-candidate/paragraph-css@2.0.1/dist/paragraph.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@nl-design-system-candidate/code-block-css@1.1.4/dist/code-block.css"
+    />
 
     <link
       rel="stylesheet"
@@ -69,55 +74,76 @@
           <main id="main">
             <h1 class="nl-heading nl-heading--level-1">Dialogs, dialogs, dialogs!</h1>
             <p class="nl-paragraph">Heeft u een dialog nodig, dan bent u hier aan goede adres!</p>
-            <h2>Dialog die direct opent wanneer de pagina opent</h2>
-            <p>...</p>
-            <h2>De inhoud van een alert dialog</h2>
-            <p>...</p>
-            <h2>Heading levels in een dialog</h2>
+            <h2 class="nl-heading nl-heading--level-2">Dialog die direct opent wanneer de pagina opent</h2>
+            <p class="nl-paragraph">...</p>
+            <h2 class="nl-heading nl-heading--level-2">De inhoud van een alert dialog</h2>
+            <p class="nl-paragraph">...</p>
+            <h2 class="nl-heading nl-heading--level-2">Heading levels in een dialog</h2>
             <p class="nl-paragraph">Heeft u een dialog nodig, dan bent u hier aan goede adres!</p>
-            <h2>Positie van de <code>&lt;dialog></code> in de DOM</h2>
+            <h2 class="nl-heading nl-heading--level-2">Positie van de <code>&lt;dialog></code> in de DOM</h2>
             <ul>
               <li>De impact van positie in de DOM op de koppenstructuur</li>
               <li>De impact van positie in de DOM op de focusvolgorde</li>
             </ul>
-            <p>
-              <button type="button" onclick="document.getElementById('you-are-logged-out-variant-1').showModal()">
+            <p class="nl-paragraph">
+              <button
+                class="utrecht-button"
+                type="button"
+                onclick="document.getElementById('you-are-logged-out-variant-1').showModal()"
+              >
                 Trigger logged out dialog with <code>showModal()</code>
               </button>
               <button
+                class="utrecht-button"
                 type="button"
                 onclick="setTimeout(() => { document.getElementById('you-are-logged-out-variant-1').showModal(); }, 2000)"
               >
                 Trigger logged out dialog with <code>showModal()</code> after 2 seconds
               </button>
-              <button type="button" popovertarget="you-are-logged-out-variant-1">
+              <button class="utrecht-button" type="button" popovertarget="you-are-logged-out-variant-1">
                 Trigger logged out dialog with <code>popovertarget</code>
               </button>
-              <button type="button" onclick="document.getElementById('you-are-logged-out-variant-2').showModal()">
+              <button
+                class="utrecht-button"
+                type="button"
+                onclick="document.getElementById('you-are-logged-out-variant-2').showModal()"
+              >
                 Trigger logged out dialog with <code>showModal()</code>: variant 2 with aria attributes
               </button>
             </p>
-            <h3>Variant 1</h3>
-            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-1"></outer-html></prettier-formatting></code></pre>
-            <p>Variant 1 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
-            <blockquote><p>Je bent uitgelogd, and 2 more items, alert dialogue, OK, button</p></blockquote>
-            <h3>Variant 2</h3>
-            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-2"></outer-html></prettier-formatting></code></pre>
-            <p>Variant 2 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
-            <h3>Variant 3</h3>
-            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-3"></outer-html></prettier-formatting></code></pre>
-            <h3>Variant 4</h3>
-            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-4"></outer-html></prettier-formatting></code></pre>
+            <h3 class="nl-heading nl-heading--level-3">Variant 1</h3>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-1"></outer-html></prettier-formatting></code></pre>
+            <p class="nl-paragraph">Variant 1 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
             <blockquote>
-              <p>
+              <p class="nl-paragraph">Je bent uitgelogd, and 2 more items, alert dialogue, OK, button</p>
+            </blockquote>
+            <h3 class="nl-heading nl-heading--level-3">Variant 2</h3>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-2"></outer-html></prettier-formatting></code></pre>
+            <p class="nl-paragraph">Variant 2 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
+            <h3 class="nl-heading nl-heading--level-3">Variant 3</h3>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-3"></outer-html></prettier-formatting></code></pre>
+            <h3 class="nl-heading nl-heading--level-3">Variant 4</h3>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-4"></outer-html></prettier-formatting></code></pre>
+            <blockquote>
+              <p class="nl-paragraph">
                 OK, Button, Je bent uitgelogd, Je was even iets anders aan het doen, daarom ben je uitgelogd, alert
                 dialogue
               </p>
             </blockquote>
             <dialog id="you-are-logged-out-variant-1" popover role="alertdialog">
-              <h2>Je bent uitgelogd</h2>
-              <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
-              <p><button type="submit">OK</button></p>
+              <h2 class="nl-heading nl-heading--level-2">Je bent uitgelogd</h2>
+              <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+              <p class="utrecht-action-group">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
             <dialog
               id="you-are-logged-out-variant-2"
@@ -128,82 +154,102 @@
             >
               <h2 id="you-are-logged-out-variant-2-label">Je bent uitgelogd</h2>
               <div id="you-are-logged-out-variant-2-description">
-                <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+                <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
               </div>
-              <p><button type="submit">OK</button></p>
+              <p class="utrecht-action-group">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
-            <dialog id="you-are-logged-out-variant-3" popover role="alertdialog">
-              <h2>Je bent uitgelogd</h2>
-              <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
-              <p><button type="submit">OK</button></p>
+            <dialog id="you-are-logged-out-variant-3" popover>
+              <h2 class="nl-heading nl-heading--level-2">Je bent uitgelogd</h2>
+              <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+              <p class="utrecht-action-group">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
             <dialog
               id="you-are-logged-out-variant-4"
               popover
-              role="alertdialog"
               aria-labelledby="you-are-logged-out-variant-4-label"
               aria-describedby="you-are-logged-out-variant-4-description"
             >
               <h2 id="you-are-logged-out-variant-4-label">Je bent uitgelogd</h2>
               <div id="you-are-logged-out-variant-4-description">
-                <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+                <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
               </div>
-              <p><button type="submit">OK</button></p>
+              <p class="utrecht-action-group">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
-            <h2>Voorbeeld: Dialog met live region</h2>
+            <h2 class="nl-heading nl-heading--level-2">Voorbeeld: Dialog met live region</h2>
             <ul>
               <li>Hoe ga je om met de veranderende inhoud?</li>
               <li>Werkt dit met <code>role="alertdialog"</code>?</li>
             </ul>
-            <p>
-              <button type="button" onclick="document.getElementById('session-countdown').showModal()">
+            <p class="nl-paragraph">
+              <button
+                class="utrecht-button"
+                type="button"
+                onclick="document.getElementById('session-countdown').showModal()"
+              >
                 Trigger "Session countdown" dialog with <code>showModal()</code>
               </button>
-              <button type="button" popovertarget="session-countdown">
+              <button class="utrecht-button" type="button" popovertarget="session-countdown">
                 Trigger "Session countdown" dialog with <code>popovertarget</code>
               </button>
             </p>
             <dialog id="session-countdown" popover>
-              <h2>Ga nu verder, wanneer je niet opnieuw wil inloggen</h2>
-              <p>
+              <h2 class="nl-heading nl-heading--level-2">Ga nu verder, wanneer je niet opnieuw wil inloggen</h2>
+              <p class="nl-paragraph">
                 Je wordt uitgelogd over <strong><live-countdown seconds="900">15 minuten</live-countdown></strong
                 >.
               </p>
-              <p><button type="submit">OK</button></p>
+              <p class="nl-paragraph">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
-            <h2>Voorbeeld: Dialog met 1 Text Input</h2>
-            <p>
-              <button type="button" onclick="document.getElementById('confirm-destroy').showModal()">
+            <h2 class="nl-heading nl-heading--level-2">Voorbeeld: Dialog met 1 Text Input</h2>
+            <p class="nl-paragraph">
+              <button
+                class="utrecht-button"
+                type="button"
+                onclick="document.getElementById('confirm-destroy').showModal()"
+              >
                 Trigger "Confirm destroy" dialog with <code>showModal()</code>
               </button>
-              <button type="button" popovertarget="confirm-destroy">
+              <button class="utrecht-button" type="button" popovertarget="confirm-destroy">
                 Trigger "Confirm destroy" dialog with <code>popovertarget</code>
               </button>
             </p>
             <dialog id="confirm-destroy" popover>
-              <h2>Bevestig dat je deze repository wilt verwijderen</h2>
-              <p>Typ hier <strong>nl-design-system/hall-of-fame</strong> als je deze repository wilt verwijderen:</p>
-              <p><input type="text" /></p>
-              <p><button type="submit">OK</button></p>
+              <h2 class="nl-heading nl-heading--level-2">Bevestig dat je deze repository wilt verwijderen</h2>
+              <p class="nl-paragraph">
+                Typ hier <strong>nl-design-system/hall-of-fame</strong> als je deze repository wilt verwijderen:
+              </p>
+              <p class="nl-paragraph"><input type="text" /></p>
+              <p class="utrecht-action-group">
+                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+              </p>
             </dialog>
             <section>
-              <h2>Voorbeeld: Dialog bij <code>onbeforeunload</code> event</h2>
+              <h2 class="nl-heading nl-heading--level-2">Voorbeeld: Dialog bij <code>onbeforeunload</code> event</h2>
               <ul>
                 <li>
-                  <p>
+                  <p class="nl-paragraph">
                     Deze dialog kan niet daadwerkelijk getriggered worden door de <code>beforeunload</code> event, omdat
                     die alleen een native browser dialog kan tonen.
                   </p>
                 </li>
                 <li>
-                  <p>
+                  <p class="nl-paragraph">
                     Zo'n dialog zou getriggered moeten worden door een actie van een gebruiker, waarvan duidelijk is dat
                     het effect zal zijn dat de pagina verlaten wordt. Bijvoorbeeld, door het klikken op een link.
                   </p>
                 </li>
               </ul>
-              <p>
+              <p class="nl-paragraph">
                 <button
+                  class="utrecht-button"
                   type="button"
                   onclick="window.addEventListener('beforeunload', (evt) => {
                 evt.preventDefault();
@@ -213,18 +259,18 @@
                   Trigger "Confirm leaving this page" dialog after <code>onbeforeunload</code>
                 </button>
               </p>
-              <p>
+              <p class="nl-paragraph">
                 <a href="https://example.com">Ga naar example.com</a> om de pagina te verlaten (en trigger
                 <code>beforeunload</code>).
               </p>
-              <p>
+              <p class="nl-paragraph">
                 <a href="https://example.com" class="prevent-leave-page" data-dialog="confirm-leave-page"
                   ><span>Ga naar example.com</span></a
                 >
                 om de pagina te verlaten, en doe <code>clickEvent.preventDefault()</code> (<code>a</code> met
                 <code>span</code>).
               </p>
-              <p>
+              <p class="nl-paragraph">
                 <a href="https://example.com" class="prevent-leave-page" data-dialog="confirm-leave-page"
                   >Ga naar example.com</a
                 >
@@ -247,8 +293,11 @@
                 );
               </script>
               <dialog id="confirm-leave-page" popover role="alertdialog">
-                <h2>Bevestig dat je deze pagina wilt verlaten</h2>
-                <p><button type="submit">OK</button> <button type="submit">Cancel</button></p>
+                <h2 class="nl-heading nl-heading--level-2">Bevestig dat je deze pagina wilt verlaten</h2>
+                <p class="nl-paragraph">
+                  <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+                  <button class="utrecht-button" type="submit">Cancel</button>
+                </p>
               </dialog>
             </section>
           </main>
