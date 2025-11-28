@@ -81,30 +81,40 @@
               <li>De impact van positie in de DOM op de focusvolgorde</li>
             </ul>
             <p>
-              <button type="button" onclick="document.getElementById('you-are-logged-out').showModal()">
+              <button type="button" onclick="document.getElementById('you-are-logged-out-variant-1').showModal()">
                 Trigger logged out dialog with <code>showModal()</code>
               </button>
               <button
                 type="button"
-                onclick="setTimeout(() => { document.getElementById('you-are-logged-out').showModal(); }, 2000)"
+                onclick="setTimeout(() => { document.getElementById('you-are-logged-out-variant-1').showModal(); }, 2000)"
               >
                 Trigger logged out dialog with <code>showModal()</code> after 2 seconds
               </button>
-              <button type="button" popovertarget="you-are-logged-out">
+              <button type="button" popovertarget="you-are-logged-out-variant-1">
                 Trigger logged out dialog with <code>popovertarget</code>
               </button>
               <button type="button" onclick="document.getElementById('you-are-logged-out-variant-2').showModal()">
                 Trigger logged out dialog with <code>showModal()</code>: variant 2 with aria attributes
               </button>
             </p>
+            <h3>Variant 1</h3>
+            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-1"></outer-html></prettier-formatting></code></pre>
             <p>Variant 1 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
-            <blockquote>Je bent uitgelogd, and 2 more items, alert dialogue, OK, button</blockquote>
+            <blockquote><p>Je bent uitgelogd, and 2 more items, alert dialogue, OK, button</p></blockquote>
+            <h3>Variant 2</h3>
+            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-2"></outer-html></prettier-formatting></code></pre>
             <p>Variant 2 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
+            <h3>Variant 3</h3>
+            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-3"></outer-html></prettier-formatting></code></pre>
+            <h3>Variant 4</h3>
+            <pre><code><prettier-formatting><outer-html ref="#you-are-logged-out-variant-4"></outer-html></prettier-formatting></code></pre>
             <blockquote>
-              OK, Button, Je bent uitgelogd, Je was even iets anders aan het doen, daarom ben je uitgelogd, alert
-              dialogue
+              <p>
+                OK, Button, Je bent uitgelogd, Je was even iets anders aan het doen, daarom ben je uitgelogd, alert
+                dialogue
+              </p>
             </blockquote>
-            <dialog id="you-are-logged-out" popover role="alertdialog">
+            <dialog id="you-are-logged-out-variant-1" popover role="alertdialog">
               <h2>Je bent uitgelogd</h2>
               <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
               <p><button type="submit">OK</button></p>
@@ -113,11 +123,29 @@
               id="you-are-logged-out-variant-2"
               popover
               role="alertdialog"
-              aria-labelledby="you-are-logged-out-label"
-              aria-describedby="you-are-logged-out-description"
+              aria-labelledby="you-are-logged-out-variant-2-label"
+              aria-describedby="you-are-logged-out-variant-2-description"
             >
-              <h2 id="you-are-logged-out-label">Je bent uitgelogd</h2>
-              <div id="you-are-logged-out-description">
+              <h2 id="you-are-logged-out-variant-2-label">Je bent uitgelogd</h2>
+              <div id="you-are-logged-out-variant-2-description">
+                <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+              </div>
+              <p><button type="submit">OK</button></p>
+            </dialog>
+            <dialog id="you-are-logged-out-variant-3" popover role="alertdialog">
+              <h2>Je bent uitgelogd</h2>
+              <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+              <p><button type="submit">OK</button></p>
+            </dialog>
+            <dialog
+              id="you-are-logged-out-variant-4"
+              popover
+              role="alertdialog"
+              aria-labelledby="you-are-logged-out-variant-4-label"
+              aria-describedby="you-are-logged-out-variant-4-description"
+            >
+              <h2 id="you-are-logged-out-variant-4-label">Je bent uitgelogd</h2>
+              <div id="you-are-logged-out-variant-4-description">
                 <p>Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
               </div>
               <p><button type="submit">OK</button></p>
@@ -226,62 +254,18 @@
           </main>
         </div>
       </div>
-      <footer class="utrecht-page-footer">
+      <footer class="utrecht-page-footer" contenteditable="true">
         <div class="utrecht-page-footer__content">Footer</div>
       </footer>
-      <script>
-        customElements.define(
-          'live-countdown',
-          class LiveCountdownElement extends HTMLElement {
-            start = 0;
-            end = 0;
-            delta = 0;
-            progress = 0;
-            constructor() {
-              super();
-              this.start = Date.now();
-              // Convert `seconds` to milliseconds
-              this.duration = Number.parseInt(this.getAttribute('seconds'), 10) * 1000;
-              setInterval(() => {
-                this.tick();
-                this.render();
-              }, 1000);
-            }
-            tick() {
-              this.now = Date.now();
-              this.delta = this.now - this.start;
-              this.progress = Math.min(this.delta, this.duration);
-              this.countdown = this.duration - this.progress;
-            }
-            render() {
-              this.innerHTML = `${Math.round(this.countdown / 1000)} seconden`;
-            }
-          },
-        );
-      </script>
-      <script>
-        customElements.define(
-          'outer-html',
-          class OuterHTMLElement extends HTMLElement {
-            static observedAttributes = ['ref'];
-
-            constructor() {
-              super();
-              this.target = this.ownerDocument.querySelector(this.getAttribute('ref'));
-              this.observer = new MutationObserver(callback);
-            }
-            connectedCallback() {
-              this.observer.connect(this.target, { childList: true, subtree: true });
-            }
-            render() {
-              this.textContent = this.target.outerHTML;
-            }
-            disconnectedCallback() {
-              this.observer.disconnect();
-            }
-          },
-        );
-      </script>
+      <script type="module" src="./live-countdown-element.mjs"></script>
+      <script type="module" src="./outer-html-element.mjs"></script>
+      <script type="module" src="./prettier-formatting-element.mjs"></script>
+      <script type="module" src="https://esm.sh/prettier@3.7.1/index.mjs"></script>
+      <style>
+        :not(:defined) {
+          outline: 1px solid red;
+        }
+      </style>
     </div>
   </body>
 </html>
