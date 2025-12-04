@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git+ssh",
-    "url": "git@github.com:robbert/dialogs.git"
+    "url": "git@github.com:Robbert/dialogs.git"
   },
   "license": "EUPL-1.2",
   "files": [
