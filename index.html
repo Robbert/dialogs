@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/textbox-css@3.0.0/dist/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/page-layout-css@2.0.1/dist/index.css" />
     <link rel="stylesheet" href="https://unpkg.com/@utrecht/code-block-css@2.0.1/dist/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@utrecht/root-css@2.0.1/dist/index.css" />
 
     <link
       rel="stylesheet"
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@amsterdam/design-system-css@1.0.1/dist/heading/heading.css" />
     <link rel="stylesheet" href="https://unpkg.com/@amsterdam/design-system-css@1.0.1/dist/paragraph/paragraph.css" />
     <link rel="stylesheet" href="https://unpkg.com/@amsterdam/design-system-css@1.0.1/dist/breadcrumb/breadcrumb.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@amsterdam/design-system-css@1.0.1/dist/dialog/dialog.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/@amsterdam/design-system-css@1.0.1/dist/page-footer/page-footer.css"
@@ -74,6 +76,15 @@
           <main id="main">
             <h1 class="nl-heading nl-heading--level-1">Dialogs, dialogs, dialogs!</h1>
             <p class="nl-paragraph">Heeft u een dialog nodig, dan bent u hier aan goede adres!</p>
+            <div contenteditable="true">
+              <p>Voorbeeld HTML content</p>
+            </div>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><code-block language="html"><outer-html ref="[contenteditable=true]"></outer-html></code-block></code></pre>
+            <pre
+              class="nl-code-block"
+            ><code class="nl-code-block__code"><outer-html ref="[contenteditable=true]"></outer-html></code></pre>
             <h2 class="nl-heading nl-heading--level-2">Dialog die direct opent wanneer de pagina opent</h2>
             <p class="nl-paragraph">...</p>
             <h2 class="nl-heading nl-heading--level-2">De inhoud van een alert dialog</h2>
@@ -114,7 +125,7 @@
             <h3 class="nl-heading nl-heading--level-3">Variant 1</h3>
             <pre
               class="nl-code-block"
-            ><code class="nl-code-block__code"><prism-syntax-highlighting language="html"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-1"></outer-html></prettier-formatting></prism-syntax-highlighting></code></pre>
+            ><code class="nl-code-block__code"><code-block language="html"><outer-html ref="#you-are-logged-out-variant-1"></outer-html></code-block></code></pre>
             <p class="nl-paragraph">Variant 1 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
             <blockquote>
               <p class="nl-paragraph">Je bent uitgelogd, and 2 more items, alert dialogue, OK, button</p>
@@ -122,43 +133,56 @@
             <h3 class="nl-heading nl-heading--level-3">Variant 2</h3>
             <pre
               class="nl-code-block"
-            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-2"></outer-html></prettier-formatting></code></pre>
+            ><code class="nl-code-block__code"><code-block language="html"><outer-html ref="#you-are-logged-out-variant-2"></outer-html></code-block></code></pre>
             <p class="nl-paragraph">Variant 2 wordt door VoiceOver op macOS 15.7.2 wordt als volgt voorgelezen:</p>
             <h3 class="nl-heading nl-heading--level-3">Variant 3</h3>
             <pre
               class="nl-code-block"
-            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-3"></outer-html></prettier-formatting></code></pre>
+            ><code class="nl-code-block__code"><code-block language="html"><outer-html ref="#you-are-logged-out-variant-3"></outer-html></code-block></code></pre>
             <h3 class="nl-heading nl-heading--level-3">Variant 4</h3>
             <pre
               class="nl-code-block"
-            ><code class="nl-code-block__code"><prettier-formatting><outer-html ref="#you-are-logged-out-variant-4"></outer-html></prettier-formatting></code></pre>
+            ><code class="nl-code-block__code"><code-block language="html"><outer-html ref="#you-are-logged-out-variant-4"></outer-html></code-block></code></pre>
             <blockquote>
               <p class="nl-paragraph">
                 OK, Button, Je bent uitgelogd, Je was even iets anders aan het doen, daarom ben je uitgelogd, alert
                 dialogue
               </p>
             </blockquote>
-            <dialog id="you-are-logged-out-variant-1" popover role="alertdialog">
-              <h2 class="nl-heading nl-heading--level-2">Je bent uitgelogd</h2>
-              <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
-              <p class="utrecht-action-group">
-                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
-              </p>
+            <dialog id="you-are-logged-out-variant-1" popover role="alertdialog" class="ams-dialog">
+              <header class="ams-dialog__header">
+                <h2 class="nl-heading nl-heading--level-2">Je bent uitgelogd</h2>
+              </header>
+              <div class="ams-dialog__body">
+                <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
+              </div>
+              <footer class="ams-dialog__footer">
+                <p class="utrecht-action-group">
+                  <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+                </p>
+              </footer>
             </dialog>
             <dialog
               id="you-are-logged-out-variant-2"
               popover
               role="alertdialog"
+              class="ams-dialog"
               aria-labelledby="you-are-logged-out-variant-2-label"
               aria-describedby="you-are-logged-out-variant-2-description"
             >
-              <h2 id="you-are-logged-out-variant-2-label">Je bent uitgelogd</h2>
-              <div id="you-are-logged-out-variant-2-description">
+              <header class="ams-dialog__header">
+                <h2 class="nl-heading nl-heading--level-2" id="you-are-logged-out-variant-2-label">
+                  Je bent uitgelogd
+                </h2>
+              </header>
+              <div class="ams-dialog__body" id="you-are-logged-out-variant-2-description">
                 <p class="nl-paragraph">Je was even iets anders aan het doen, daarom ben je uitgelogd.</p>
               </div>
-              <p class="utrecht-action-group">
-                <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
-              </p>
+              <footer class="ams-dialog__footer">
+                <p class="utrecht-action-group">
+                  <button class="utrecht-button utrecht-button--primary-action" type="submit">OK</button>
+                </p>
+              </footer>
             </dialog>
             <dialog id="you-are-logged-out-variant-3" popover>
               <h2 class="nl-heading nl-heading--level-2">Je bent uitgelogd</h2>
@@ -310,10 +334,99 @@
       <script type="module" src="./outer-html-element.mjs"></script>
       <script type="module" src="./prettier-formatting-element.mjs"></script>
       <script type="module" src="./prism-syntax-highlighting.mjs"></script>
+      <script type="module" src="./code-block-element.mjs"></script>
       <script type="module" src="https://esm.sh/prettier@3.7.1/index.mjs"></script>
       <style>
         :not(:defined) {
           outline: 1px solid red;
+        }
+      </style>
+      <style>
+        /* see https://fontsource.org/fonts/noto-sans/cdn */
+        /* noto-sans-latin-wght-normal */
+        @font-face {
+          font-family: 'Noto Sans Variable';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 100 900;
+          src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-sans:vf@latest/latin-wght-normal.woff2)
+            format('woff2-variations');
+          unicode-range:
+            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+            U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* https://fontsource.org/fonts/noto-serif/cdn */
+        /* noto-serif-latin-wght-normal */
+        @font-face {
+          font-family: 'Noto Serif Variable';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 100 900;
+          src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-serif:vf@latest/latin-wght-normal.woff2)
+            format('woff2-variations');
+          unicode-range:
+            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+            U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* https://fontsource.org/fonts/noto-sans-mono/cdn */
+        /* noto-sans-mono-latin-wght-normal */
+        @font-face {
+          font-family: 'Noto Sans Mono Variable';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 100 900;
+          src: url(https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-mono:vf@latest/latin-wght-normal.woff2)
+            format('woff2-variations');
+          unicode-range:
+            U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+            U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+      </style>
+      <style>
+        .ams-dialog {
+          /* TODO: Make PR for Amsterdam Design System with border radius design token */
+          border-radius: var(--todo-dialog-border-radius, 0);
+          --todo-dialog-border-radius: 1em;
+        }
+        .ams-dialog__body {
+          /* TODO: Make PR for Amsterdam Design System with logical CSS properties */
+          overflow-inline: auto;
+          overscroll-behavior-inline: contain;
+        }
+        .voorbeeld-theme {
+          /* TODO: Include variable fonts in list of fonts of voorbeeld theme */
+          --basis-text-font-family-monospace: 'Noto Sans Mono Variable', 'Noto Sans Mono', monospace;
+          --basis-text-font-family-default: 'Noto Sans Variable', 'Noto Sans', sans-serif;
+          --basis-heading-font-family: 'Noto Serif Variable', 'Noto Serif', serif;
+
+          /* TODO: extend voorbeeld-design-tokens npm package with ams-dialog */
+          --ams-dialog-backdrop-background-color: initial;
+          --ams-dialog-background-color: var(--basis-color-text-bg-default, white);
+          --ams-dialog-body-medium-padding-inline: var(--ams-dialog-body-padding-inline);
+          --ams-dialog-body-padding-block: var(--basis-space-block-md);
+          --ams-dialog-body-padding-inline: var(--basis-space-inline-md);
+          --ams-dialog-border-color: var(--basis-color-text-color-default);
+          /* TODO: zou `solid` de default border kunnen zijn, in combinatie met een width van 0? */
+          --ams-dialog-border-style: solid;
+          --ams-dialog-border-width: 1px;
+          --ams-dialog-footer-medium-padding-block: var(--ams-dialog-footer-padding-block);
+          --ams-dialog-footer-medium-padding-inline: var(--ams-dialog-footer-padding-inline);
+          --ams-dialog-footer-padding-block: var(--basis-space-block-md);
+          --ams-dialog-footer-padding-inline: var(--basis-space-inline-md);
+          --ams-dialog-gap: 0;
+          --ams-dialog-header-gap: initial;
+          --ams-dialog-header-medium-padding-block: var(--ams-dialog-header-padding-block);
+          --ams-dialog-header-medium-padding-inline: var(--ams-dialog-header-padding-inline);
+          --ams-dialog-header-padding-block: var(--basis-space-block-md);
+          --ams-dialog-header-padding-inline: var(--basis-space-inline-md);
+
+          /* TODO: De Amsterdam Dialog is standaard 100% breed, dat kan misschien beter `fit-content` zijn? */
+          --ams-dialog-inline-size: fit-content;
+          --ams-dialog-max-block-size: 100%;
+          --ams-dialog-max-inline-size: 100%;
+          --ams-dialog-medium-inline-size: var(--ams-dialog-inline-size);
+          --ams-dialog-medium-max-block-size: var(--ams-dialog-max-block-size);
         }
       </style>
     </div>

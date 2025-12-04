@@ -6,16 +6,12 @@ customElements.define(
     constructor() {
       super();
       this.target = this.ownerDocument.querySelector(this.getAttribute('ref'));
-      console.log('x');
       this.observer = new MutationObserver(() => {
-        console.log('mutation!!');
         this.render();
       });
       this.render();
     }
     connectedCallback() {
-      console.log('connect');
-
       this.observer.observe(this.target, {
         attributes: true,
         characterData: true,

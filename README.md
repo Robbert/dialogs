@@ -57,3 +57,14 @@ Je kunt het `prettier-formatting` element ook combineren met het `outer-html` el
 </div>
 <pre><code><prettier-formatting><outer-html ref="[contenteditable=true]"></outer-html></prettier-formatting></code></pre>
 ```
+
+## `<code-block>` custom element
+
+Dit custom element is een combinatie van `prettier-formatting` en `prism-syntax-highlighting`.
+
+```html
+<div contenteditable="true">
+  <p>Voorbeeld HTML content</p>
+</div>
+<pre><code><code-block><outer-html ref="[contenteditable=true]"></outer-html></code-block></code></pre>
+```
