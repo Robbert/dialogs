@@ -2,7 +2,14 @@
   "name": "@robbert/dialog-experiment",
   "version": "1.0.0",
   "keywords": [],
-  "author": "",
+  "author": "Robbert Broersma",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:robbert/dialogs.git"
+  },
   "license": "EUPL-1.2",
   "files": [
     "code-block-element.mjs",
